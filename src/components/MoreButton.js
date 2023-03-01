@@ -1,7 +1,7 @@
 import React from "react";
 
-function MoreButton(props) {
-  return <button onClick={/* Fill me in! */ null}>More sushi!</button>;
+function MoreButton({fourMoreSushi}) {
+  return <button onClick={fourMoreSushi}>More sushi!</button>;
 }
 
 export default MoreButton;

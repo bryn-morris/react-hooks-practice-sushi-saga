@@ -1,20 +1,33 @@
-import React from "react";
+import React,{useState} from "react";
 
-function Sushi(props) {
+function Sushi({eachSushi, renderEmptyPlates, spendMoney, skrilla}) {
+
+  const [isEaten,setIsEaten] = useState(false)
+
+  function emptyPlates() {
+    if (eachSushi.price <= skrilla){
+    setIsEaten(true)
+    renderEmptyPlates("plate #" + eachSushi.id, eachSushi.price)
+    spendMoney(eachSushi.price)
+    } else {
+      alert("You have no money... So begins your swift descent into destitution")
+    }
+    
+  }
+
   return (
     <div className="sushi">
-      <div className="plate" onClick={/* Give me a callback! */ null}>
-        {/* Tell me if this sushi has been eaten! */}
-        {false ? null : (
+      <div className="plate" onClick = {emptyPlates} >
+        {isEaten ? null : (
           <img
-            src={/* Give me an image source! */ null}
-            alt={/* Give me a name! */ "Sushi"}
+            src={eachSushi.img_url}
+            alt={eachSushi.name + "Sushi"}
             width="100%"
           />
         )}
       </div>
       <h4 className="sushi-details">
-        {/* Give me a name! */} - ${/* Give me a price! */}
+        {eachSushi.name} - ${eachSushi.price}
       </h4>
     </div>
   );
