@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { render } from "react-dom";
 import SushiContainer from "./SushiContainer";
 import Table from "./Table";
+import SushiWallet from "./SushiWallet";
 
 const API = "http://localhost:3001/sushis";
 
@@ -41,6 +42,10 @@ function App() {
       setSkrilla(skrilla => skrilla-sushiCost)
   }
 
+  function handleWallet (addedMoney) {
+      setSkrilla(skrilla => skrilla+addedMoney)
+  }
+
   return (
     <div className="app">
       <SushiContainer 
@@ -52,7 +57,12 @@ function App() {
       />
       <Table
       plates = {tablePlates}
-      skrilla = {skrilla}/>
+      skrilla = {skrilla}
+      
+      />
+      <SushiWallet
+        handleWallet= {handleWallet}
+      />
     </div>
   );
 }

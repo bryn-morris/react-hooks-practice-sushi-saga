@@ -10,7 +10,7 @@ function Sushi({eachSushi, renderEmptyPlates, spendMoney, skrilla}) {
     renderEmptyPlates("plate #" + eachSushi.id, eachSushi.price)
     spendMoney(eachSushi.price)
     } else {
-      alert("You have no money... So begins your swift descent into destitution")
+      alert("Khajit has wares...if you have coin")
     }
     
   }

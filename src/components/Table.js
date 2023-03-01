@@ -1,6 +1,6 @@
 import React from "react";
 
-function Table({ plates, skrilla }) {
+function Table({ plates, skrilla}) {
   const emptyPlates = plates.map((_, index) => (
     <div key={index} className="empty-plate" style={{ top: -7 * index }} />
   ));
